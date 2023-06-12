@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0a173c;
+
+        }
+
+        .container {
+            /*width: 1920px;*/
+            /* height: 1080px; */
+
+            /*border: 1px solid red;*/
+        }
+
+        .container-body{
+            width: 95vw;
+            margin: 0 auto;
+        }
+
+        .container-header {
+
+            /*height: 170px;*/
+            /*vh view height*/
+            height: 14vh;
+
+            /*border: 1px solid red;*/
+            /* background-color: black; */
+        }
+
+        .row {
+            width: 95vw;
+            /*height: 284px;*/
+            height: 26.30vh;
+            /* background-color: green; */
+            /*margin-bottom: 10px;*/
+            margin: 0 0 1vh 0;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .chart-normal {
+            /*width: 430px;*/
+            /*vw view width*/
+            width: 22.4vw;
+            /*height: 284px;*/
+            height: 26.30vh;
+
+            /* background-color: purple; */
+            /* margin: 0 5px; */
+        }
+
+
+
+        .chart-title {
+            /*height: 40px;*/
+            height: 3.7vh;
+
+
+            border-left: 1px solid #1d4d74;
+
+            color: #a6b8c9;
+            font-size: 25px;
+            /*line-height: 40px;*/
+            line-height: 3.7vh;
+
+            position: relative;
+
+            background: linear-gradient(to right, #08315b, #0e1e49);
+
+            font-weight: 600;
+
+            padding: 0 0 0 0.5vw;
+        }
+
+        .chart-body {
+            /* background-color: red; */
+
+            /*height: 230px;*/
+            height: 21.29vh;
+            /*margin-top: 10px;*/
+            margin-top: 0.9vh;
+
+            border: 2px solid #1d4d74;
+
+            position: relative;
+        }
+
+        #age {
+            width: 100%;
+            /*height: 230px;*/
+            height: 21.29vh;
+        }
+
+        .angle-6 {
+            width: 6px;
+            height: 6px;
+            border: 0 solid #46c3ff;
+        }
+
+        .angle-top-1 {
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            border-top-width: 1px;
+            border-left-width: 1px;
+
+        }
+
+        .angle-right-1 {
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            border-top-width: 1px;
+            border-right-width: 1px;
+
+        }
+
+        .angle-bottom-1 {
+            position: absolute;
+            right: -1px;
+            bottom: -1px;
+            border-bottom-width: 1px;
+            border-right-width: 1px;
+        }
+
+        .angle-left-1 {
+            position: absolute;
+            left: -1px;
+            bottom: -1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+        }
+
+        .angle {
+            width: 10px;
+            height: 10px;
+            border: 0 solid #46c3ff;
+        }
+
+        .angle-top {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            border-top-width: 2px;
+            border-left-width: 2px;
+
+        }
+
+        .angle-right {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            border-top-width: 2px;
+            border-right-width: 2px;
+
+        }
+
+        .angle-bottom {
+            position: absolute;
+            right: -2px;
+            bottom: -2px;
+            border-bottom-width: 2px;
+            border-right-width: 2px;
+        }
+
+        .angle-left {
+            position: absolute;
+            left: -2px;
+            bottom: -2px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+        }
+
+
+        .chart-max {
+            /*width: 900px;*/
+            width: 46.87vw;
+            /*height: 284px;*/
+            height: 26.30vh;
+
+            /* background-color: purple; */
+            /* margin: 0 5px; */
+        }
+
+        .container-footer {
+            /*height: 40px;*/
+            height: 3.7vh;
+            /* background-color:red; */
+        }
+
+        #city {
+            /*width: 215px;*/
+            width: 11.2vw;
+            /*height: 230px;*/
+            height: 21.29vh;
+            /* background-color: red; */
+        }
+
+        #public {
+            /*width: 215px;*/
+            width: 11.2vw;
+            /*height: 230px;*/
+            height: 21.29vh;
+            /* background-color: orange; */
+
+        }
+
+        #net {
+            /* width: 100%; */
+            /*height: 230px;*/
+            height: 21.29vh;
+        }
+
+        table,
+        td,
+        th {
+            /* border: 1px solid red; */
+        }
+
+        table {
+            border-spacing: 0 8px;
+        }
+
+        th {
+            /*width: 142px;*/
+            width: 7.4vw;
+            /*height: 34px;*/
+            height: 3.14vh;
+            color: #a6b8c9
+        }
+
+        td {
+            /*width: 142px;*/
+            width: 7.4vw;
+            /*height: 26px;*/
+            height: 2.4vh;
+            color: #53bffc;
+
+            text-align: center;
+        }
+
+        .td-index {
+            color: #0e1530;
+            background-color: #26defd;
+
+            padding: 0 10px;
+            border-radius: 5px;
+
+        }
+
+        /* n 0, 1, 2,3, .... */
+        tr:nth-child(2n+1) {
+            background-color: #0f3058;
+        }
+
+        tr:nth-child(1) {
+            background-color: #08183d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-header"></div>
+        <div class="container-body">
+            <div class="row">
+
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        视频网站偏好
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <table>
+                            <tr>
+                                <th>排名</th>
+                                <th>网站名称</th>
+                                <th>点击量</th>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">1</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">2</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">3</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">4</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">5</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        年龄
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <div id="age"></div>
+                    </div>
+                </div>
+                <div class="chart-normal">
+
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        区域
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <div style="display: flex; flex-direction: row;">
+                            <div id="city"></div>
+                            <div id="public"></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        视频网站偏好
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <table>
+                            <tr>
+                                <th>排名</th>
+                                <th>网站名称</th>
+                                <th>点击量</th>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">1</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">2</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">3</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">4</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">5</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        视频网站偏好
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <table>
+                            <tr>
+                                <th>排名</th>
+                                <th>网站名称</th>
+                                <th>点击量</th>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">1</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">2</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">3</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">4</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">5</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+                <div class="chart-max">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        上网时段趋势
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <div id="net"></div>
+                    </div>
+                </div>
+
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        视频网站偏好
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <table>
+                            <tr>
+                                <th>排名</th>
+                                <th>网站名称</th>
+                                <th>点击量</th>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">1</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">2</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">3</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">4</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">5</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        视频网站偏好
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <table>
+                            <tr>
+                                <th>排名</th>
+                                <th>网站名称</th>
+                                <th>点击量</th>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">1</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">2</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">3</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">4</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">5</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        视频网站偏好
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <table>
+                            <tr>
+                                <th>排名</th>
+                                <th>网站名称</th>
+                                <th>点击量</th>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">1</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">2</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">3</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">4</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">5</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        视频网站偏好
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <table>
+                            <tr>
+                                <th>排名</th>
+                                <th>网站名称</th>
+                                <th>点击量</th>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">1</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">2</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">3</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">4</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">5</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+                <div class="chart-normal">
+                    <div class="chart-title">
+                        <div class="angle-6 angle-top-1"></div>
+                        <div class="angle-6 angle-left-1"></div>
+                        视频网站偏好
+                    </div>
+                    <div class="chart-body">
+                        <div class="angle angle-top"></div>
+                        <div class="angle angle-right"></div>
+                        <div class="angle angle-bottom"></div>
+                        <div class="angle angle-left"></div>
+
+                        <table>
+                            <tr>
+                                <th>排名</th>
+                                <th>网站名称</th>
+                                <th>点击量</th>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">1</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">2</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">3</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">4</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+                            <tr>
+                                <td><span class="td-index">5</span></td>
+                                <td>视频</td>
+                                <td>4546456</td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container-footer">
+            2022年5月22日
+        </div>
+    </div>
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.min.js"></script>
+    <script>
+        // 年龄
+        let ageObj = document.getElementById("age")
+        let ageChart = echarts.init(ageObj)
+        let ageOption = {
+            xAxis: {
+                type: "category",
+                data: ["20-", "20-30", "30-40", "40-50", "50+"],
+                axisLine: {
+                    lineStyle: {
+                        color: "#38476b"
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    color: "#a6b8c9"
+                }
+            },
+            yAxis: {
+                type: "value",
+                name: "百分比（%）",
+                min: 0,
+                max: 40,
+                nameTextStyle: {
+                    color: "#a6b8c9"
+                },
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: "#38476b"
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: "#38476b"
+                    }
+                },
+                axisLabel: {
+                    color: "#a6b8c9"
+                }
+            },
+            series: [
+                {
+                    type: "bar",
+                    data: [22, 29, 23, 13, 11],
+                    barWidth: 24,
+                    itemStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [
+                                {
+                                    offset: 0, color: '#41d5d5' // 0% 处的颜色
+                                },
+                                {
+                                    offset: 1, color: '#46bcf8' // 100% 处的颜色
+                                }
+                            ],
+                            global: false // 缺省为 false
+                        },
+                        borderRadius: 8
+                    }
+                }
+            ],
+            // 设置容器四周的间距
+            grid: {
+                left: 40,
+                right: 20,
+                top: 40,
+                bottom: 24,
+            }
+        }
+        ageChart.setOption(ageOption)
+
+        // 区域 - 城市
+
+        let cityObj = document.getElementById("city")
+        let cityChart = echarts.init(cityObj)
+        let cityOption = {
+            title: {
+                text: "城区、农村用户比例",
+
+                left: "center",
+                // top: "bottom",
+                bottom: 15,
+
+                textStyle: {
+                    color: "#9fb1c3"
+                }
+            },
+
+            legend: {
+                data: ["城区", "农村"],
+                textStyle: {
+                    color: "#9fb1c3"
+                },
+                icon: "circle",
+                itemWidth: 10,
+                itemHeight: 10,
+                // borderRadius: 5,
+                // borderWidth: 1,
+                top: 20
+
+            },
+            series: [
+                {
+                    type: "pie",
+                    data: [
+                        {
+                            name: "城区",
+                            value: 75,
+                            itemStyle: {
+                                color: "#26defd"
+                            }
+                        },
+                        {
+                            name: "农村",
+                            value: 25,
+                            itemStyle: {
+                                color: "#f8a036"
+                            }
+                        },
+
+                    ],
+                    radius: [45, 63],
+                    label: {
+                        show: false
+                    },
+                    // left: 24,
+                    // right: 24,
+                    // top: 24,
+                    // bottom: 50,
+                }
+            ]
+        }
+        cityChart.setOption(cityOption)
+
+        // 区域 - 公共区域
+        let publicObj = document.getElementById("public")
+        let publicChart = echarts.init(publicObj)
+        let publicOption = {
+            title: {
+                text: "公共场所、家庭用户占比",
+                left: "center",
+                // top: "bottom",
+                bottom: 15,
+                textStyle: {
+                    color: "#9fb1c3"
+                }
+            },
+
+            legend: {
+                data: ["公共场所", "家庭"],
+                textStyle: {
+                    color: "#9fb1c3"
+                },
+                icon: "circle",
+                itemWidth: 10,
+                itemHeight: 10,
+                // borderRadius: 5,
+                // borderWidth: 1,
+                top: 20
+
+            },
+            series: [
+                {
+                    type: "pie",
+                    data: [
+                        {
+                            name: "公共场所",
+                            value: 25,
+                            itemStyle: {
+                                color: "#25e49c"
+                            }
+                        },
+                        {
+                            name: "家庭",
+                            value: 75,
+                            itemStyle: {
+                                color: "#f8d636"
+                            }
+                        },
+
+                    ],
+                    radius: [45, 63],
+                    label: {
+                        show: false
+                    }
+                }
+            ]
+        }
+        publicChart.setOption(publicOption)
+
+        // 上网时段趋势
+
+        let netObj = document.getElementById("net")
+        let netChart = echarts.init(netObj)
+        let netOption = {
+            grid: {
+                left: 40,
+                right: 40,
+                top: 50,
+                bottom: 40,
+            },
+            xAxis: {
+                type: "category",
+                data: [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4],
+                axisLine: {
+                    show: false,
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    color: "#9fb1c3"
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: "#3a476c"
+                    }
+                },
+
+                boundaryGap: false
+            },
+            yAxis: {
+                type: "value",
+                name: "用户数（万户）",
+                nameTextStyle: {
+                    color: "#9fb1c3",
+                    align: "left",
+
+                    // borderStyle: "solid",
+                    // borderColor: "red",
+                    // borderWidth: 1,
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: "#3a476c"
+                    }
+                },
+                axisLabel: {
+                    color: "#9fb1c3"
+                },
+            },
+
+            series: [
+                {
+                    type: "line",
+                    data: [50, 40, 60, 45, 80, 50, 40, 60, 45, 80, 50, 40, 60, 45, 80, 50, 40, 60, 45, 80],
+                    smooth: true,
+                    symbolSize: 10,
+
+                    lineStyle: {
+                        color: "#26defd",
+                        width: 3,
+                    },
+
+                    itemStyle: {
+                        color: "#26defd",
+                    },
+                    areaStyle: {
+                        color: "#15396c",
+                    }
+                }
+            ]
+        }
+        netChart.setOption(netOption)
+
+        //监听浏览器窗口大小改变事件
+
+        window.addEventListener("resize", function (){
+            // console.log(window.innerWidth)
+            // console.log(window.innerHeight)
+            // // 重新渲染图标
+            // ageChart.resize
+            // cityChart.resize
+            // publicChart.resize
+            // netChart.resize
+            location.reload()
+        })
+
+    </script>
+</body>
+
+</html>
